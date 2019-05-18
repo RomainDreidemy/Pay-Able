@@ -1,0 +1,68 @@
+{% include 'include/head.html' %}
+
+<body id="groupe">
+<header>
+    {% include 'include/nav.html' %}
+</header>
+
+<main>
+    {% include 'include/form-background.html' %}
+
+    <div id="contain_create_groupe" class="container-page-white">
+        <div id="etape">
+            <div class="check"></div>
+            <div class="check"></div>
+            <div class="check"></div>
+            <div class="check"></div>
+            <div></div>
+        </div>
+
+        <div class="p-30">
+            <h1 class="mb-10">Votre récapitulatif</h1>
+
+            {% for message in MESSAGES_ERREUR %}
+            <div class="alert alert-{{ message.type|e }}">{{ message.message|e }}</div>
+            {% endfor %}
+
+            <h3>Nom du groupe : {{INFO_GROUPE.nom}}</h3>
+
+            <h3 class="mt-30">Solutions choisis :</h3>
+            <div class="d-flex mt-10">
+                {% for SOLUTION in SOLUTIONS %}
+                <div class="block-img-recap">
+                    <img class="w100" src="_front/assets/img/{{SOLUTION.image}}" alt="">
+                </div>
+                {% endfor %}
+            </div>
+
+            <h3 class="mt-30">Personnes invitées :</h3>
+            <ul>
+                {% for INVITE in INFO_GROUPE.invitations%}
+                <li>{{INVITE}}</li>
+                {% endfor%}
+            </ul>
+
+            <h3 class="mt-30">Coût total : {{ TOTAL }}€/mois</h3>
+            <h3 class="mt-5">Coût par personne : {{ TOTAL / INFO_GROUPE.taille }}€/mois</h3>
+
+
+
+
+
+
+
+
+
+            <div class="d-flex container_bouton">
+                <a href="/creation-groupe/envoie-des-invitations" class="btn btn-secondary"></a>
+                <a href="/creation-groupe/payment" class="btn btn-primary text-center">Suivant</a>
+            </div>
+        </div>
+    </div>
+
+
+
+</main>
+
+{% include 'include/footer.html' %}
+</body>

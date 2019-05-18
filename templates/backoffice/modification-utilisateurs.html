@@ -1,0 +1,103 @@
+{% include 'backoffice/include/nav.html' %}
+
+
+{% if DELETE_VERIF == 'oui' %}
+<div class="alert-suppression mb-15 mt-15">
+    <h2>Voulez-vous vraiment supprimer ?</h2>
+    <div class="d-flex ">
+        <a href="{{_FRONT}}//backoffice/utilisateurs/modification?id={{INFOS_USER.id}}" class="btn btn-primary mr-10">Non</a>
+        <a href="?action=suppression&id={{INFOS_USER.id}}" class="btn btn-secondary">Oui</a>
+    </div>
+</div>
+{% endif %}
+<h1>Modification de l'utilisateur n°{{INFOS_USER.id}}</h1>
+
+<form method="post" class="mt-15">
+    {% for message in MESSAGES_ERREUR %}
+    <div class="alert alert-{{ message.type|e }}">{{ message.message|e }}</div>
+    {% endfor %}
+    <label for="nom">Nom</label>
+    <input type="text" id="nom" name="name" value="{{INFOS_USER.name}}">
+
+    <label for="prenom">Prénom</label>
+    <input type="text" id="prenom" name="surname" value="{{INFOS_USER.surname}}">
+
+    <label for="naissance">Date de naissance</label>
+    <input type="date" id="naissance" name="birth_date" value="{{INFOS_USER.birth_date}}">
+
+    <label for="email">Email</label>
+    <input type="email" id="email" name="email" value="{{INFOS_USER.email}}">
+
+    <label for="postal">Code postal</label>
+    <input type="number" id="postal" name="postal_code" value="{{INFOS_USER.postal_code}}">
+
+    <label for="phone">Numéro de téléphone</label>
+    <input type="number" id="phone" name="phone_number" value="{{INFOS_USER.phone_number}}">
+
+    <input type="submit" class="btn btn-primary" name="modifier" value="Modifier">
+</form>
+
+<hr class="mt-30 mb-30">
+
+<h1 class="mb-15">Groupes de l'utilisateur</h1>
+
+{% if GROUPES is empty %}
+<p>Ce compte n'appartient à aucun groupe !</p>
+{% else %}
+<div class="table">
+
+    <div class="row header green">
+        <div class="cell">Id</div>
+        <div class="cell">Nom</div>
+        <div class="cell">Taille</div>
+        <div class="cell">Prochain prélèvement</div>
+        <div class="cell">Statut</div>
+        <div class="cell">Action</div>
+    </div>
+
+    {% for GROUPE in GROUPES %}
+    <div class="row">
+        <div class="cell">PAY-ABLE_{{ GROUPE.id_group }}_{{ GROUPE.token }}</div>
+        <div class="cell">{{ GROUPE.name }}</div>
+        <div class="cell">{{ GROUPE.taille }}</div>
+        <div class="cell">{% if GROUPE.next_prelevement != NULL %} {{ GROUPE.next_prelevement|date('d/m/Y') }}{% else %} - {% endif %}</div>
+        <div class="cell">{%  if(GROUPE.statut == 1) %} Actif {% else %} Inactif {% endif %}</div>
+        <div class="cell"><a href="{{ _FRONT }}/backoffice/groupes/consultation?id={{ GROUPE.id_group }}">Consultation</a></div>
+    </div>
+    {% endfor %}
+
+</div>
+{% endif %}
+
+<hr class="mt-30 mb-30">
+
+<h1 class="mb-15">Les des prélèvements</h1>
+
+{% if PAYMENTS is empty  %}
+<p>Pas de prélèvement effectué sur ce compte !</p>
+{% else %}
+<div class="table">
+
+    <div class="row header green">
+        <div class="cell">Id</div>
+        <div class="cell">date</div>
+        <div class="cell">Prix</div>
+    </div>
+
+    {% for PRELEVEMENT in PAYMENTS %}
+    <div class="row">
+        <div class="cell">{{PRELEVEMENT.id_prelevement}}</div>
+        <div class="cell">{{ PRELEVEMENT.date }}</div>
+        <div class="cell">{{ PRELEVEMENT.prix }}</div>
+    </div>
+    {% endfor %}
+
+</div>
+{% endif %}
+
+<hr class="mt-30 mb-30">
+
+<a href="?id={{INFOS_USER.id}}&delete_verif" class="btn btn-danger">Supprimer l'utilisateur</a>
+
+
+{% include 'backoffice/include/footer.html' %}

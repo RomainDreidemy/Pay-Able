@@ -1,0 +1,53 @@
+{% include 'include/head.html' %}
+
+<body id="groupe">
+<header>
+    {% include 'include/nav.html' %}
+</header>
+
+<main>
+    {% include 'include/form-background.html' %}
+
+    <div id="contain_create_groupe" class="container-page-white">
+        <div id="etape">
+            <div class="check"></div>
+            <div class="check"></div>
+            <div class="check"></div>
+            <div></div>
+            <div></div>
+        </div>
+
+        <div class="p-30">
+            <h1 class="mb-10">Renseignez les adresses E-mail des invités :</h1>
+
+
+            {% for message in MESSAGES_ERREUR %}
+            <div class="alert alert-{{ message.type|e }}">{{ message.message|e }}</div>
+            {% endfor %}
+
+            <form action="" method="post" id="nb-person">
+
+                {% for i in range(1, NB_PERSON) %}
+                    <div id="inputNb">
+                        <input class="form-control mb-10" name="email[]" type="email" placeholder="Invité {{i}}" required>
+                    </div>
+                {% endfor %}
+
+
+
+                <div class="d-flex container_bouton">
+                    <a href="/creation-groupe/choix-des-solutions-et-de-la-taille-du-groupe" class="btn btn-secondary"></a>
+                    <button type="submit" name="envoie" class="btn btn-primary">Suivant</button>
+                </div>
+
+            </form>
+        </div>
+    </div>
+
+
+
+</main>
+
+{% include 'include/footer.html' %}
+<script src="public/assets/js/nb_person.js"></script>
+</body>

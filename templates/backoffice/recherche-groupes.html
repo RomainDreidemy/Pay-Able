@@ -1,0 +1,62 @@
+{% include 'backoffice/include/nav.html' %}
+
+
+<h1>Recherche des utilisateurs</h1>
+
+<div id="recherche-utilisateur" class="card-recherche mb-30">
+    <form method="post">
+
+        <div class="d-flex justify-content-between">
+            <div>
+                <label for="id_group">Identifiant</label>
+                <input type="text" id="id_group" name="id_group" value="{{POST.id_group}}">
+            </div>
+            <div>
+                <label for="name">Nom</label>
+                <input type="text" id="name" name="name" value="{{POST.name}}">
+            </div>
+        </div>
+
+        <div class="d-flex justify-content-between">
+            <div>
+                <label for="taille">Taille</label>
+                <input type="number" id="taille" name="taille" value="{{POST.taille}}">
+            </div>
+            <div>
+                <label for="statut">Statut</label>
+                <select name="statut" id="statut">
+                    <option value="all">Tous</option>
+                    <option value="0" {% if POST.statut == 0 %} selected {% endif %}>Inactif</option>
+                    <option value="1" {% if POST.statut == 1 %} selected {% endif %}>Actif</option>
+                </select>
+            </div>
+        </div>
+
+
+        <input type="submit" class="btn btn-primary mt-15" name="rechercher" value="Rechercher">
+
+    </form>
+</div>
+
+{%if GROUPES|length != 0 %}
+<div class="table">
+    <div class="row header green">
+        <div class="cell">Id</div>
+        <div class="cell">Nom</div>
+        <div class="cell">Taille</div>
+        <div class="cell">Statut</div>
+        <div class="cell">Action</div>
+    </div>
+
+    {% for GROUPE in GROUPES %}
+    <div class="row">
+        <div class="cell">PAY-ABLE_{{ GROUPE.id_group }}_{{ GROUPE.token }}</div>
+        <div class="cell">{{ GROUPE.name }}</div>
+        <div class="cell">{{ GROUPE.taille }}</div>
+        <div class="cell">{%  if(GROUPE.statut == 1) %} Actif {% else %} Inactif {% endif %}</div>
+        <div class="cell"><a href="{{ _FRONT }}/backoffice/groupes/consultation?id={{ GROUPE.id_group }}">Consultation</a></div>
+    </div>
+    {% endfor %}
+</div>
+{% endif %}
+{% include 'backoffice/include/footer.html' %}

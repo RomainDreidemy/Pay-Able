@@ -1,0 +1,156 @@
+{% include 'include/head.html' %}
+
+<body id="home">
+<header>
+    {% include 'include/nav.html' %}
+
+
+
+    <h1>le Partage<br>des Abonnements<br>Streaming Simplifié {{ TEST }}</h1>
+
+    <div id="header_picture_1"><img src="_front/assets/img/shape.png" alt=""></div>
+    <div id="header_picture_2"><img src="_front/assets/img/shape2.png" alt=""></div>
+
+    <a href="{{_FRONT}}/share-choice" id="button_header">Je Partage</a>
+
+    <a href="#deroulement" class="arrows c-pointer"></a>
+</header>
+
+<main>
+    <div>
+        {% for message in MESSAGES_ERREUR %}
+        <div class="alert alert-">{{ message.message|e }}</div>
+        {% endfor %}
+    </div>
+
+    <section id="deroulement" class="mt-30 mb-30 container">
+        <h2 class="pl-15 mb-15">Qu'est ce que Pay-Able ?</h2>
+        <div id="caroussel-mobile" class="slider text-center">
+            <div class="slide-track">
+                <div class="slide">
+                    <img src="public/assets/img/creer.png" alt="" />
+                    <h3>Créer</h3>
+                    <p>un groupe de partage pour la solution de votre choix.</p>
+                </div>
+                <div class="slide">
+                    <img src="public/assets/img/inviter.png" alt="" />
+                    <h3>Inviter</h3>
+                    <p>les personnes avec qui vous souhaitez partager le paiment de la solution</p>
+                </div>
+                <div class="slide">
+                    <img src="public/assets/img/partager.png" alt="" />
+                    <h3>Partager</h3>
+                    <p>Votre abonnement est partager. Profitez de votre solution</p>
+                </div>
+            </div>
+        </div>
+
+        <div id="caroussel" class="d-flex justify-content-between p-15 text-center">
+            <div class="card">
+                <img src="public/assets/img/creer.png" alt="">
+                <h3 >Créez</h3>
+                <p>les personnes avec qui vous souhaitez partager le paiment de la solution</p>
+            </div>
+
+            <div class="card">
+                <img src="public/assets/img/inviter.png" alt="">
+                <h3>Inviter</h3>
+                <p>Un groupe de partage pour la solution de votre choix</p>
+            </div>
+
+            <div class="card">
+                <img src="public/assets/img/partager.png" alt="">
+                <h3>Partager</h3>
+                <p>Votre abonnement est partager. Profitez de votre solution</p>
+            </div>
+        </div>
+    </section>
+
+
+    <div id="regroupement_degrade">
+        <section id="how" class="pt-30 pb-30 pl-30 pr-30 container">
+            <h2 class="pl-15 mb-15 text-white">Comment ça marche ?</h2>
+
+            <div class="video-container">
+                <iframe src="https://www.youtube.com/embed/8f0S4SyJaOI" frameborder="0" width="560" height="315"></iframe>
+            </div>
+        </section>
+        <section id="offer" class="container pl-30 pr-30">
+            <h2 class="mb-15 text-white">Les solutions compatibles</h2>
+            <div class="d-flex justify-content-between flex-wrap text-center">
+                <div class="card bg-white mb-25">
+                    <div class="w100">
+                        <img class="w100" src="public/assets/img/logonetflix.png" alt="">
+                    </div>
+                    <div class="p-5">
+                        <h2>NETFLIX</h2>
+                        <p>Netflix est le leader mondial de service d'abonnement permettant la diffusion de films et séries TV sur votre smartphone. L'application Netflix a été conçue pour vous offrir la meilleure expérience possible, à tout moment, et où que vous soyez.</p>
+                    </div>
+                </div>
+                <div class="card bg-white mb-25">
+                    <div class="w100">
+                        <img class="w100" src="public/assets/img/spotify.png" alt="">
+                    </div>
+                    <div class="p-5">
+                        <h2>SPOTIFY</h2>
+                        <p>Spotify est un service suédois de streaming musical sous la forme d'un logiciel propriétaire et d'un site web. Spotify permet une écoute quasi instantanée de fichiers musicaux.</p>
+                    </div>
+                </div>
+                <div class="card bg-white">
+                    <div class="w100">
+                        <img class="w100" src="public/assets/img/deezer.png" alt="">
+                    </div>
+                    <div class="p-5">
+                        <h2>DEEZER</h2>
+                        <p>Deezer est un service français d'écoute de musique en streaming sous la forme d'un site web et d'applications mobiles, lancé en août 2007.</p>
+                    </div>
+                </div>
+                <div class="card bg-white">
+                    <div class="w100">
+                        <img class="w100" src="public/assets/img/prime.png" alt="">
+                    </div>
+                    <div class="p-5">
+                        <h2>PRIME VIDEO</h2>
+                        <p>Prime Video est un service de vidéo à la demande créé par Amazon.com et présent dans de nombreux pays. Il propose des émissions de télévision et des films à la location ou à l'achat.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section id="contact" class="p-30 container">
+            <h2 class="mb-15 text-white">Contactez nous</h2>
+            <form method="post">
+                <input class="p-10 mb-10" type="email" placeholder="Adresse mail" required>
+                <input class="p-10 mb-10"type="text" placeholder="Sujet" required>
+                <textarea class="p-10 mb-10" placeholder="Votre message" required></textarea>
+                <input class="c-pointer" type="submit" value="ENVOYER">
+            </form>
+
+            <div id="reseaux" class="text-white mt-15">
+                <div class="flex-contact">
+                    <h3>Téléphone</h3>
+                    <p class="nb-phone">06 58 95 76 90</p>
+                </div>
+
+                <div class="flex-contact">
+                    <h3 class="mb-10 mt-10">Réseaux</h3>
+                    <div class="d-flex justify-content-between">
+                        <a href="https://www.facebook.com/payyable/" class="img-reseaux">
+                            <img class="w100" src="public/assets/img/facebook.png" alt="">
+                        </a>
+                        <a href="https://www.instagram.com/" class="img-reseaux">
+                            <img class="w100" src="public/assets/img/instagram.png" alt="">
+                        </a>
+                        <a href="https://www.twitter.com/" target="_blank" class="img-reseaux">
+                            <img class="w100" src="public/assets/img/twitter.png" alt="">
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+        </section>
+    </div>
+</main>
+{% include 'include/footer.html' %}
+<script src="public/assets/js/smooth-scroll.js"></script>
+</body>
+</html>

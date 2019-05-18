@@ -1,0 +1,29 @@
+{% include 'backoffice/include/nav.html' %}
+
+
+<h1>Logs de payment</h1>
+
+<div class="table">
+
+    <div class="row header green">
+        <div class="cell">Id</div>
+        <div class="cell">Nom Prenom</div>
+        <div class="cell">Email</div>
+        <div class="cell">Date</div>
+        <div class="cell">Prix</div>
+        <div class="cell">Statut</div>
+    </div>
+
+    {% for PAYMENT in PAYMENTS %}
+    <div class="row">
+        <div class="cell">{{ PAYMENT.id_prelevement }}</div>
+        <div class="cell">{{ PAYMENT.name }} {{ PAYMENT.surname }}</div>
+        <div class="cell">{{ PAYMENT.email }}</div>
+        <div class="cell">{{ PAYMENT.date|date('d/m/Y') }}</div>
+        <div class="cell">{{ PAYMENT.prix }}€</div>
+        <div class="cell">{{ PAYMENT.error }}</div>
+    </div>
+    {% endfor %}
+
+</div>
+{% include 'backoffice/include/footer.html' %}

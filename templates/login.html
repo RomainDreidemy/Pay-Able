@@ -1,0 +1,45 @@
+{% include 'include/head.html' %}
+
+<body id="login">
+<header>
+    {% include 'include/nav.html' %}
+</header>
+
+<main>
+    {% include 'include/form-background.html' %}
+
+    <div id="contain_create_groupe" class="container-page-white">
+
+        <div id="img_form">
+            <div id="block-img-login" class="mt-30">
+                <img src="public/assets/img/login.png" alt="">
+            </div>
+
+            <div>
+                {% for message in MESSAGES_ERREUR %}
+                <div class="alert alert-{{message.type}}">{{ message.message|e }}</div>
+                {% endfor %}
+            </div>
+
+            <form action="" class="mt-30" method="post">
+                <input type="email" name="email" class="form-control" placeholder="Email">
+                <input type="password" name="password" class="form-control mt-15" placeholder="Mot de passe">
+                <button type="submit" class="btn btn-primary" name="connexion">Se connecter</button>
+            </form>
+        </div>
+
+
+        <div id="ou-login">
+            <hr>
+            <p>Ou</p>
+        </div>
+
+        <a href="inscription" class="btn btn-secondary">S'inscrire</a>
+    </div>
+
+
+
+</main>
+
+{% include 'include/footer.html' %}
+</body>

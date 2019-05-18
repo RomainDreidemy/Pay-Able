@@ -1,0 +1,27 @@
+<div class="d-flex justify-content-between p-15">
+    <div id="logo_header">
+        <img src="_front/assets/img/logo-white.png" alt="Pay-Able">
+    </div>
+    <nav class="nav_hide">
+        <div>
+            <div id="nav_burger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            <ul>
+                <div id="logo_black_nav"><img src="_front/assets/img/logo-black.png" alt="Pay-Able"></div>
+
+                <li><a href="{{_FRONT}}/home">Accueil</a></li>
+                <li><a href="{{_FRONT}}/home#how">A propos</a></li>
+                <li><a href="{{_FRONT}}/home#offer">Offres</a></li>
+                <li><a href="{{_FRONT}}/home#contact">Contact</a></li>
+                {% if SESSION_USER is not empty %}
+                    <li><a href="{{_FRONT}}/profil">{{SESSION_USER.surname}}</a><a href="{{_FRONT}}/connexion?logout"> <i class="fas fa-sign-out-alt"></i></a></li>
+                {% else %}
+                    <li><a href="{{_FRONT}}/connexion">Connexion</a></li>
+                {% endif %}
+            </ul>
+        </div>
+    </nav>
+</div>

@@ -1,0 +1,11 @@
+{
+    "require": {
+        "stripe/stripe-php": "^6.30",
+        "fzaninotto/faker": "^1.8"
+    },
+    "autoload": {
+        "psr-4": {
+            "App\\": "src/"
+        }
+    }
+}

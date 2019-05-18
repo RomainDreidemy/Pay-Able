@@ -1,0 +1,35 @@
+{% include 'backoffice/include/nav.html' %}
+
+        <div class="d-flex mb-10">
+            <h1>Liste des utilisateurs</h1>
+            <form class="ml-15">
+                <input type="text" class="form-control" placeholder="Rechercher" id="search_user">
+            </form>
+        </div>
+
+
+        <div class="table" id="table-user-search">
+
+            <div class="row header green">
+                <div class="cell">Id</div>
+                <div class="cell">Nom</div>
+                <div class="cell">Prénom</div>
+                <div class="cell">Email</div>
+                <div class="cell">Statut</div>
+                <div class="cell">Action</div>
+            </div>
+
+                {% for USER in USERS %}
+                <div class="row">
+                    <div class="cell">{{ USER.id }}</div>
+                    <div class="cell">{{ USER.name }}</div>
+                    <div class="cell">{{ USER.surname }}</div>
+                    <div class="cell">{{ USER.email }}</div>
+                    <div class="cell">{%  if(USER.admin == 1) %} Administrateur {% else %} Utilisateur {% endif %}</div>
+                    <div class="cell"><a href="{{ _FRONT }}/backoffice/utilisateurs/modification?id={{ USER.id }}">Modification</a></div>
+                </div>
+                {% endfor %}
+
+
+        </div>
+{% include 'backoffice/include/footer.html' %}

@@ -1,0 +1,99 @@
+{% include 'include/head.html' %}
+
+<body id="groupe">
+<header>
+    {% include 'include/nav.html' %}
+</header>
+
+<main>
+    {% include 'include/form-background.html' %}
+
+    <div id="contain_create_groupe" class="container-page-white">
+        <div id="etape">
+            <div class="check"></div>
+            <div class="check"></div>
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+
+        <div class="p-30">
+            <h1 class="mb-10">Je choisis ma ou mes solutions</h1>
+
+            {% for message in MESSAGES_ERREUR %}
+            <div class="alert alert-{{ message.type|e }}">{{ message.message|e }}</div>
+            {% endfor %}
+
+            <form action="" method="post" id="solution">
+
+                <div id="contain_solution_nbperson">
+                    <div id="choixSolution" class="d-flex flex-wrap justify-content-between">
+                        {% for OFFER in OFFERS %}
+                        <div class="mb-15"><label for="{{ OFFER.id_offer }}"><img src="_front/assets/img/{{ OFFER.image }}"></label>
+                            <input id="{{ OFFER.id_offer }}" type="checkbox" name="solution[]" value="{{ OFFER.id_offer }}" data-price="{{OFFER.price}}" {% if OFFER.id_offer in SESSION['createGroupe']['solutions'] %} checked {% endif %}
+                            >
+                            <h2 class="text-center">{{ OFFER.name }}</h2>
+                        </div>
+                        {% endfor %}
+                    </div>
+
+                    <div id="form-nbPerson">
+
+                        <div>
+                            <div class="prix d-flex justify-content-between">
+                                <label for="twoPerson">
+                                    <img src="_front/assets/img/picto-nb-person.png" alt="">
+                                    <img src="_front/assets/img/picto-nb-person.png" alt="">
+                                </label>
+                                <p>-</p>
+                            </div>
+
+                            <input type="radio" id="twoPerson" name="nbperson" value="2" {% if SESSION['createGroupe']['taille'] == 2%} checked {% endif %}>
+                        </div>
+
+                        <div>
+                            <div class="prix d-flex justify-content-between">
+                                <label for="threePerson">
+                                    <img src="_front/assets/img/picto-nb-person.png" alt="">
+                                    <img src="_front/assets/img/picto-nb-person.png" alt="">
+                                    <img src="_front/assets/img/picto-nb-person.png" alt="">
+                                </label>
+                                <p>-</p>
+                            </div>
+
+                            <input type="radio" id="threePerson" name="nbperson" value="3" {% if SESSION['createGroupe']['taille'] == 3%} checked {% endif %}>
+                        </div>
+
+
+                        <div>
+                            <div class="prix d-flex justify-content-between">
+                                <label for="fourPerson">
+                                    <img src="_front/assets/img/picto-nb-person.png" alt="">
+                                    <img src="_front/assets/img/picto-nb-person.png" alt="">
+                                    <img src="_front/assets/img/picto-nb-person.png" alt="">
+                                    <img src="_front/assets/img/picto-nb-person.png" alt="">
+                                </label>
+                                <p>-</p>
+                            </div>
+                            <input type="radio" id="fourPerson" name="nbperson" value="4" {% if SESSION['createGroupe']['taille'] == 4%} checked {% endif %}>
+                        </div>
+                    </div>
+                </div>
+
+
+        <div class="d-flex container_bouton">
+            <a href="/creation-groupe/nom-du-groupe" class="btn btn-secondary"></a>
+            <button type="submit" class="btn btn-primary" name="envoie">Suivant</button>
+        </div>
+
+        </form>
+    </div>
+    </div>
+
+
+
+</main>
+
+{% include 'include/footer.html' %}
+<script src="_front/assets/js/price-offer.js"></script>
+</body>

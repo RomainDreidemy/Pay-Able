@@ -1,0 +1,54 @@
+{% include 'include/head.html' %}
+
+<body id="groupe">
+<header>
+    {% include 'include/nav.html' %}
+</header>
+
+<main>
+    {% include 'include/form-background.html' %}
+
+    <div class="container">
+        <div class="container-page-white">
+            <div class="p-30">
+                <h2>Modifier mes informations : {{TEST}}</h2>
+
+                {% for message in MESSAGES_ERREUR %}
+                <div class="alert alert-{{ message.type|e }}">{{ message.message|e }}</div>
+                {% endfor %}
+
+                <form action="" method="post" class="mt-30">
+                    <h3>Comment vous appelez-vous ?</h3>
+                    <input type="text" name="name" class="form-control mt-5 mb-5" placeholder="Nom" value="{{ INFOS.name }}">
+                    <input type="text" name="surname" class="form-control" placeholder="Prenom" value="{{ INFOS.surname }}">
+
+                    <h3 class="mt-30">Quel est votre adresse e-mail ?</h3>
+                    <input type="email" name="email" class="form-control mt-5 mb-5" placeholder="Email" value="{{ INFOS.email }}">
+
+
+                    <h3 class="mt-30">Quel est votre numéro de téléphone ?</h3>
+                    <div class="d-flex">
+                        <p class="mt-10">+33</p><input type="text" name="phone_number" class="form-control mt-5" placeholder="658957690" value="{{ INFOS.phone_number }}">
+                    </div>
+
+                    <h3 class="mt-30">Indiquez nous votre date de naissance</h3>
+                    <input type="date" name="birth_date" class="form-control mt-5" placeholder="Date de naissance" value="{{ INFOS.birth_date }}">
+
+                    <h3 class="mt-30">Quel est votre code postal ?</h3>
+                    <input type="number" name="postal_code" class="form-control mt-5" placeholder="Code postal" value="{{ INFOS.postal_code }}">
+
+
+                    <button type="submit" name="modifier" class="btn btn-primary mt-30 w100">Modifier</button>
+                </form>
+
+            </div>
+        </div>
+
+
+    </div>
+
+
+</main>
+
+{% include 'include/footer.html' %}
+</body>

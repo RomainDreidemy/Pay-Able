@@ -1,0 +1,80 @@
+@mixin white-gradient {
+  background: linear-gradient(to right,  rgba(255,255,255,1) 0%,rgba(255,255,255,0) 100%);
+}
+
+$animationSpeed: 20s;
+
+// Animation
+@keyframes scroll {
+  0% { transform: translateX(50%); }
+  100% { transform: translateX(calc(-300px * 3))}
+}
+
+
+// Styling
+.slider {
+  background: white;
+  margin: auto;
+  overflow:hidden;
+  position: relative;
+  width: 100%;
+
+  img{
+    width: 100%;
+  }
+
+  h3{
+    font-size: 1.5em;
+  }
+
+  &::before,
+  &::after {
+    @include white-gradient;
+    content: "";
+    height: 100%;
+    position: absolute;
+    width: 100px;
+    z-index: 2;
+  }
+
+  &::after {
+    right: 0;
+    top: 0;
+    transform: rotateZ(180deg);
+  }
+
+  &::before {
+    left: 0;
+    top: 0;
+  }
+
+  .slide-track {
+    animation: scroll $animationSpeed linear infinite;
+    display: flex;
+    width: calc((175px + 150px) * 3);
+  }
+
+  .slide {
+    width: 175px;
+    margin-right: 150px;
+  }
+}
+
+@media screen and (min-width: $resp_tab){
+  .slider{
+    .slide-track{
+      animation: unset;
+      justify-content: space-around;
+      width: 100%;
+
+      .slide{
+        margin-right: 0;
+      }
+    }
+
+    &::before,
+    &::after {
+      background: unset;
+    }
+  }
+}

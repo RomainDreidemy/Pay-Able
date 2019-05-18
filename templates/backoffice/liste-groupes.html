@@ -1,0 +1,27 @@
+{% include 'backoffice/include/nav.html' %}
+
+
+        <h1>Liste des groupes</h1>
+
+        <div class="table">
+            <div class="row header green">
+                <div class="cell">Id</div>
+                <div class="cell">Nom</div>
+                <div class="cell">Taille</div>
+                <div class="cell">Prochain prélèvement</div>
+                <div class="cell">Statut</div>
+                <div class="cell">Action</div>
+            </div>
+
+            {% for GROUPE in GROUPES %}
+            <div class="row">
+                <div class="cell">PAY-ABLE_{{ GROUPE.id_group }}_{{ GROUPE.token }}</div>
+                <div class="cell">{{ GROUPE.name }}</div>
+                <div class="cell">{{ GROUPE.taille }}</div>
+                <div class="cell">{{ GROUPE.next_prelevement|date('d/m/Y') }}</div>
+                <div class="cell">{%  if(GROUPE.statut == 1) %} Actif {% else %} Inactif {% endif %}</div>
+                <div class="cell"><a href="{{ _FRONT }}/backoffice/groupes/consultation?id={{ GROUPE.id_group }}">Consultation</a></div>
+            </div>
+            {% endfor %}
+        </div>
+{% include 'backoffice/include/footer.html' %}

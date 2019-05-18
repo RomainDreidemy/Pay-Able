@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="icon" type="image/png" href="_front/assets/img/fav.png" />
+    <link rel="stylesheet" href="_front/assets/css/backoffice/style.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+    <title>{{HTML_TITLE}}</title>
+</head>
+<body>
+<nav id="nav-top"></nav>
+
+<div id="container_backoffice" class="d-flex">
+
+    <nav id="nav-left">
+        <div class="logo-nav">
+            <img src="_front/assets/img/logo-white.png" alt="logo pay-able">
+        </div>_
+        <ul id="liste-all-click">
+            <li class="categorie"><span class="click pb-5"><i class="fas fa-user"></i> Uilisateurs</span>
+                <ul class="sous-link">
+                    <li class="pt-10 pb-10"><a href="{{_FRONT}}/backoffice/utilisateurs/liste">Liste</a></li>
+                    <li class="pb-10"><a href="{{_FRONT}}/backoffice/utilisateurs/rechercher">Rechercher</a></li>
+                    <li class="pb-10"><a href="{{_FRONT}}/backoffice/utilisateurs/ajout-admin">Ajouter un administrateur</a></li>
+                </ul>
+            </li>
+
+            <li class="categorie"><span class="click"><i class="fas fa-users"></i> Groupes</span>
+                <ul class="sous-link">
+                    <li class="pt-10 pb-10"><a href="{{_FRONT}}/backoffice/groupes/liste">Liste</a></li>
+                    <li class="pb-10"><a href="{{_FRONT}}/backoffice/groupes/rechercher">Rechercher</a></li>
+                    <li class="pb-10"><a href="{{_FRONT}}/backoffice/groupes/liste/vide">Vide</a></li>
+                </ul>
+            </li>
+
+            <li class="categorie"><span class="click"><i class="fas fa-euro-sign"></i> Payments</span>
+                <ul class="sous-link">
+                    <li class="pt-10 pb-10"><a href="{{_FRONT}}/backoffice/payments/logs">Logs</a></li>
+                    <li class="pt-10 pb-10"><a href="{{_FRONT}}/backoffice/payments/demain">Prélevements demain</a></li>
+                </ul>
+            </li>
+        </ul>
+    </nav>
+    <main class="p-30">

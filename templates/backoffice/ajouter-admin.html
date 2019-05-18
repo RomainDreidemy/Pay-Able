@@ -1,0 +1,39 @@
+{% include 'backoffice/include/nav.html' %}
+
+<h1>Ajouter un administrateur</h1>
+
+<form method="post" class="mt-15">
+    {% for message in MESSAGES_ERREUR %}
+    <div class="alert alert-{{ message.type|e }}">{{ message.message|e }}</div>
+    {% endfor %}
+
+
+    <label for="nom">Nom</label>
+    <input type="text" id="nom" name="name" value="">
+
+    <label for="prenom">Prénom</label>
+    <input type="text" id="prenom" name="surname" value="">
+
+    <label for="naissance">Date de naissance</label>
+    <input type="date" id="naissance" name="birth_date" value="">
+
+    <label for="email">Email</label>
+    <input type="email" id="email" name="email" value="">
+
+    <label for="emailVerify">Vérifier email</label>
+    <input type="email" id="emailVerify" name="emailVerify" value="">
+
+    <label for="mdp">Mot de passe</label>
+    <input type="password" id="mdp" name="password" value="">
+
+    <label for="postal">Code postal</label>
+    <input type="number" id="postal" name="postal_code" value="">
+
+    <label for="phone">Numéro de téléphone</label>
+    <input type="number" id="phone" name="phone_number" value="">
+
+    <input type="submit" class="btn btn-primary" name="ajouter" value="Ajouter">
+</form>
+
+
+{% include 'backoffice/include/footer.html' %}

@@ -1,0 +1,87 @@
+{% include 'include/head.html' %}
+
+<body id="profil">
+<header>
+    {% include 'include/nav.html' %}
+</header>
+
+<main>
+    {% include 'include/form-background.html' %}
+
+    <div class="container" id="container_profil">
+        <div class="card">
+            <h2>{{ INFOS.surname }} {{ INFOS.name }}</h2>
+
+            <p>Date de naissance : {{INFOS.birth_date|date("d/m/Y")}}</p>
+            <p>Email : {{INFOS.email}}</p>
+            <p>Code postal : {{INFOS.postal_code}}</p>
+            <p>Téléphone : +33 {{INFOS.phone_number}}</p>
+
+            <a href="{{_FRONT}}/profil/modifier" class="btn btn-secondary mt-15">Modifier les informations</a>
+        </div>
+
+        <div class="card">
+            <h2 class="mb-15">Changer de mot de passe :</h2>
+
+            <p>Vous pouvez changer de mot de passe à tout moment en cliquant sur le bouton ci-dessous</p>
+
+            <a href="{{_FRONT}}/profil/changer-de-mot-de-passe" class="btn btn-secondary mt-15">Changer de mot de passe</a>
+
+            <h2 class="mt-15 mb-15">Changer de méthode de payement :</h2>
+
+            <a href="{{_FRONT}}/profil/changer-de-carte-bancaire" class="btn btn-secondary mt-15">Changer de carte bancaire</a>
+        </div>
+
+        <div id="list-group" class="card">
+            <h2 class="mb-15">Liste des groupes :</h2>
+
+            {% for GROUPE in GROUPES %}
+            <a href="{{_FRONT}}/gestion/groupe/view?id={{GROUPE.id_group}}">- {{GROUPE.name}} <span class="statut">(
+                {% if GROUPE.statut == 1 %}
+                    actif
+                {% else %}
+                    inactif
+                {% endif %}
+                )</span>
+                </a>
+
+            <br>
+            {% endfor %}
+        </div>
+
+
+
+        <div class="card mb-10">
+            <h2 class="mb-15">Derniers payments :</h2>
+
+
+            {% if PRELEVEMENTS is empty%}
+                <p>Aucun prélèvement encore effectué !</p>
+            {% else %}
+            <table>
+                <thead>
+                <th>ID</th>
+                <th>Date</th>
+                <th>Prix</th>
+                </thead>
+                <tbody>
+                {% for PRELEVEMENT in PRELEVEMENTS%}
+                <tr>
+                    <td>{{PRELEVEMENT.id_prelevement}}</td>
+                    <td>{{PRELEVEMENT.date|date('d/m/Y')}}</td>
+                    <td>{{PRELEVEMENT.prix}}€</td>
+                </tr>
+
+                {% endfor%}
+                </tbody>
+            </table>
+            {% endif %}
+
+        </div>
+    </div>
+
+
+</main>
+
+{% include 'include/footer.html' %}
+</body>

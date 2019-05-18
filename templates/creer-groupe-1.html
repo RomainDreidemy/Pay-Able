@@ -1,0 +1,41 @@
+{% include 'include/head.html' %}
+
+<body id="groupe">
+<header>
+    {% include 'include/nav.html' %}
+</header>
+
+<main>
+    {% include 'include/form-background.html' %}
+
+    <div id="contain_create_groupe" class="container-page-white">
+        <div id="etape">
+            <div class="check"></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+
+        <div class="p-30">
+            <h1 class="mb-10">Nom du groupe</h1>
+            <p class="mb-15">Donnez un nom à votre groupe, il pourra être changer plus tard </p>
+
+            {% for message in MESSAGES_ERREUR %}
+                <div class="alert alert-{{ message.type|e }}">{{ message.message|e }}</div>
+            {% endfor %}
+
+            <form action="" method="post">
+                <input type="text" name="nom" class="form-control" placeholder="Nom du groupe" value="{{ PREREMPLISSAGE_NOM }}">
+
+                <button class="btn btn-primary">Suivant</button>
+            </form>
+        </div>
+    </div>
+
+
+
+</main>
+
+{% include 'include/footer.html' %}
+</body>

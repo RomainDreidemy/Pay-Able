@@ -1,0 +1,57 @@
+{% include 'backoffice/include/nav.html' %}
+
+
+<h1>Informations groupe PAY-ABLE_{{INFOS_GROUPE.id_group}}_{{INFOS_GROUPE.token}} <span class="badge {%  if(INFOS_GROUPE.statut == 1) %} green {% else %} red {% endif %}">{%  if(INFOS_GROUPE.statut == 1) %} Actif {% else %} Inactif {% endif %}</span></h1>
+
+<div id="info-groupe" class="mt-15">
+    <p>Nom du groupe : {{ INFOS_GROUPE.name}}</p>
+    <p>Taille du groupe : {{ USERS|length}}/{{ INFOS_GROUPE.taille}}</p>
+    <p>Coût par personne : {{PRIX/INFOS_GROUPE.taille}}€</p>
+    <p>Coût total : {{PRIX}}€</p>
+    {% if INFOS_GROUPE.next_prelevement != NULL%}
+        <p>Prochain prélèvement :
+            {{INFOS_GROUPE.next_prelevement|date("d/m/Y")}}
+        </p>
+    {% endif %}
+</div>
+
+<hr class="mt-30 mb-30">
+
+<h1>Liste des solutions</h1>
+
+<div id="solution-groupe" class="d-flex mt-15">
+    {% for SOLUTION in SOLUTIONS%}
+    <div class="mr-10">
+        <img src="_front/assets/img/{{SOLUTION.image}}" alt="{{SOLUTION.name}}" title="{{SOLUTION.name}}">
+    </div>
+    {% endfor %}
+</div>
+
+<hr class="mt-30 mb-30">
+
+<h1 class="mb-15">Liste des membres</h1>
+
+<div class="table">
+
+    <div class="row header green">
+        <div class="cell">Id</div>
+        <div class="cell">Nom</div>
+        <div class="cell">Prénom</div>
+        <div class="cell">Email</div>
+        <div class="cell">Statut</div>
+        <div class="cell">Action</div>
+    </div>
+
+    {% for USER in USERS %}
+    <div class="row">
+        <div class="cell">{{ USER.id }}</div>
+        <div class="cell">{{ USER.name }}</div>
+        <div class="cell">{{ USER.surname }}</div>
+        <div class="cell">{{ USER.email }}</div>
+        <div class="cell">{%  if(USER.role == 1) %} Propriétaire {% else %} - {% endif %}</div>
+        <div class="cell"><a href="{{ _FRONT }}/backoffice/utilisateurs/modification?id={{ USER.id }}">Modification</a></div>
+    </div>
+    {% endfor %}
+
+</div>
+{% include 'backoffice/include/footer.html' %}

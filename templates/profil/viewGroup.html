@@ -1,0 +1,55 @@
+{% include 'include/head.html' %}
+
+<body id="profil">
+<header>
+    {% include 'include/nav.html' %}
+</header>
+
+<main>
+    {% include 'include/form-background.html' %}
+
+    <div class="container">
+        <div id="info-groupe" class="card">
+            <h2 class="mb-15">Information du groupe : </h2>
+
+            {% for message in MESSAGES_ERREUR %}
+            <div class="alert alert-{{ message.type|e }}">{{ message.message|e }}</div>
+            {% endfor %}
+
+            <p class="mb-5">Identifiant : PAY-ABLE_{{GROUPE.id_group}}_{{GROUPE.token}}</p>
+            <p class="mb-5">Nom du groupe : {{GROUPE.name}}</p>
+            <p>Solution choisies :</p>
+            <div id="list-offer" class="d-flex mt-10 mb-5">
+                {% for OFFER in OFFERS %}
+                <div class="block-img-recap">
+                    <img class="w100" src="_front/assets/img/{{OFFER.image}}" alt="">
+                </div>
+                {% endfor %}
+            </div>
+            <p class="mb-5">Taille du groupe : {{USERS|length}}/{{GROUPE.taille}}</p>
+            <p>Personnes dans le groupe :</p>
+            <ul class="mb-5">
+                {% for USER in USERS%}
+                    <li>{{USER.surname}} {{USER.name}} {% if USER.role == 1 %}(propriétaire){% endif %}
+                        {% if SESSION.user.id == USER.id %}(vous){% endif %}
+                    </li>
+                {% endfor %}
+            </ul>
+            {% if USERS|length == GROUPE.taille %}
+            {% if ROLE %}
+            {% if GROUPE.statut != 1 %}
+            <p class="mt-15"><i>Le groupe est plein. Vous pouvez maintenant activer le groupe. Cela démarrera le prélèvement automatique mensuel de la somma indiqué au dessus pour toutes les personnes du groupe.</i></p>
+            <a href="?id={{GROUPE.id_group}}&action=active" class="btn btn-primary mt-15">Activer le groupe</a>
+            {% else %}
+            <a href="?id={{GROUPE.id_group}}&action=desactive" class="btn btn-secondary mt-15">Désactiver le groupe</a>
+            {% endif %}
+            {% endif %}
+            {% endif %}
+            <a href="?id={{GROUPE.id_group}}&action=leave" class="btn btn-danger mt-15">Quitter le groupe</a>
+        </div>
+    </div>
+</main>
+
+{% include 'include/footer.html' %}
+
+</body>

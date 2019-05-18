@@ -1,0 +1,257 @@
+{
+  "routes" :
+  [
+    {
+      "url": "/",
+      "class": "App\\Controller\\HomeController",
+      "method": "home",
+      "name": "accueil"
+    },
+    {
+      "url": "/home",
+      "class": "App\\Controller\\HomeController",
+      "method": "home",
+      "name": "accueil2"
+    },
+    {
+      "url": "/share-choice",
+      "class": "App\\Controller\\HomeController",
+      "method": "choice",
+      "name": "choix"
+    },
+    {
+      "url": "/connexion",
+      "class": "App\\Controller\\HomeController",
+      "method": "login",
+      "name": "connexion"
+    },
+    {
+      "url": "/inscription",
+      "class": "App\\Controller\\HomeController",
+      "method": "signIn",
+      "name": "inscription"
+    },
+    {
+      "url": "/creation-groupe/nom-du-groupe",
+      "class": "App\\Controller\\HomeController",
+      "method": "createGroup1",
+      "name": "creerGroupe1"
+    },
+    {
+      "url": "/creation-groupe/choix-des-solutions-et-de-la-taille-du-groupe",
+      "class": "App\\Controller\\HomeController",
+      "method": "createGroup2",
+      "name": "creerGroupe2"
+    },
+    {
+      "url": "/creation-groupe/envoie-des-invitations",
+      "class": "App\\Controller\\HomeController",
+      "method": "createGroup3",
+      "name": "creerGroupe3"
+    },
+    {
+      "url": "/creation-groupe/recapitulatif",
+      "class": "App\\Controller\\HomeController",
+      "method": "createGroup4",
+      "name": "creerGroupe4"
+    },
+    {
+      "url": "/creation-groupe/payment",
+      "class": "App\\Controller\\HomeController",
+      "method": "createGroup5",
+      "name": "creerGroupe5"
+    },
+    {
+      "url": "/rejoindre",
+      "class": "App\\Controller\\HomeController",
+      "method": "joinGroup",
+      "name": "rejoindre"
+    },
+    {
+      "url": "/rejoindre-2",
+      "class": "App\\Controller\\HomeController",
+      "method": "joinGroupCard",
+      "name": "rejoindre2"
+    },
+    {
+      "url": "/profil",
+      "class": "App\\Controller\\HomeController",
+      "method": "profil",
+      "name": "profil"
+    },
+    {
+      "url": "/profil/modifier",
+      "class": "App\\Controller\\HomeController",
+      "method": "modifierProfil",
+      "name": "modifierProfil"
+    },
+    {
+      "url": "/profil/changer-de-mot-de-passe",
+      "class": "App\\Controller\\HomeController",
+      "method": "modifierPassword",
+      "name": "modifierPassword"
+    },
+    {
+      "url": "/profil/changer-de-carte-bancaire",
+      "class": "App\\Controller\\HomeController",
+      "method": "modifierCarte",
+      "name": "modifierCarte"
+    },
+    {
+      "url": "/gestion/groupe/view",
+      "class": "App\\Controller\\HomeController",
+      "method": "viewGroup",
+      "name": "viewGroup"
+    },
+    {
+      "url": "/error/404",
+      "class": "App\\Controller\\HomeController",
+      "method": "error404",
+      "name": "erreur404"
+    },
+    {
+      "url": "/backoffice",
+      "class": "App\\Controller\\AdminController",
+      "method": "home",
+      "name": "accueilBack"
+    },
+    {
+      "url": "/backoffice/utilisateurs/liste",
+      "class": "App\\Controller\\AdminController",
+      "method": "userList",
+      "name": "userList"
+    },
+    {
+      "url": "/backoffice/utilisateurs/modification",
+      "class": "App\\Controller\\AdminController",
+      "method": "userUpdate",
+      "name": "userUpdate"
+    },
+    {
+      "url": "/backoffice/utilisateurs/rechercher",
+      "class": "App\\Controller\\AdminController",
+      "method": "userSearch",
+      "name": "userSearch"
+    },
+    {
+      "url": "/backoffice/utilisateurs/ajout-admin",
+      "class": "App\\Controller\\AdminController",
+      "method": "userAddAdmin",
+      "name": "userAddAdmin"
+    },
+    {
+      "url": "/backoffice/groupes/liste",
+      "class": "App\\Controller\\AdminController",
+      "method": "groupList",
+      "name": "groupList"
+    },
+    {
+      "url": "/backoffice/groupes/liste/vide",
+      "class": "App\\Controller\\AdminController",
+      "method": "groupListVide",
+      "name": "groupListVide"
+    },
+    {
+      "url": "/backoffice/groupes/consultation",
+      "class": "App\\Controller\\AdminController",
+      "method": "groupConsult",
+      "name": "groupConsult"
+    },
+    {
+      "url": "/backoffice/groupes/rechercher",
+      "class": "App\\Controller\\AdminController",
+      "method": "groupSearch",
+      "name": "groupSearch"
+    },
+    {
+      "url": "/backoffice/payments/logs",
+      "class": "App\\Controller\\AdminController",
+      "method": "logsPayment",
+      "name": "logsPayment"
+    },
+    {
+      "url": "/backoffice/payments/demain",
+      "class": "App\\Controller\\AdminController",
+      "method": "demainPayment",
+      "name": "demainPayment"
+    },
+    {
+      "url": "/administrateur/fakedata",
+      "class": "App\\Controller\\AdminController",
+      "method": "fakedata",
+      "name": "fake"
+    },
+    {
+      "url": "/cron/charge",
+      "class": "App\\Controller\\AdminController",
+      "method": "cronCharge",
+      "name": "cronCharge"
+    },
+    {
+      "url": "/cron/cleaning",
+      "class": "App\\Controller\\AdminController",
+      "method": "cronCleaning",
+      "name": "cronCleaning"
+    },
+    {
+      "url": "/ajax/recherche-utilisateur",
+      "class": "App\\Controller\\AdminController",
+      "method": "ajaxRechercheUtilisateur",
+      "name": "ajaxRechercheUtilisateur"
+    },
+    {
+      "url": "/webhook",
+      "class": "App\\Controller\\AdminController",
+      "method": "webhook",
+      "name": "webhook"
+    },
+    {
+      "url": "/mail/invitation-groupe",
+      "class": "App\\Controller\\MailController",
+      "method": "invitationGroupe",
+      "name": "invitationGroupe"
+    },
+    {
+      "url": "/mail/creation-groupe",
+      "class": "App\\Controller\\MailController",
+      "method": "creationGroupe",
+      "name": "creationGroupe"
+    },
+    {
+      "url": "/mail/activation-groupe",
+      "class": "App\\Controller\\MailController",
+      "method": "activationGroupe",
+      "name": "activationGroupe"
+    },
+    {
+      "url": "/mail/desactivation-groupe",
+      "class": "App\\Controller\\MailController",
+      "method": "desactivationGroupe",
+      "name": "desactivationGroupe"
+    },
+    {
+      "url": "/mail/rejoindre-groupe",
+      "class": "App\\Controller\\MailController",
+      "method": "rejoindreGroupe",
+      "name": "rejoindreGroupe"
+    },
+    {
+      "url": "/mail/quitte-groupe",
+      "class": "App\\Controller\\MailController",
+      "method": "quitteGroupe",
+      "name": "quitteGroupe"
+    },
+    {
+      "url": "/mail/inscription",
+      "class": "App\\Controller\\MailController",
+      "method": "inscription",
+      "name": "mailInscription"
+    },
+    {
+      "url": "/mail/prelevement",
+      "class": "App\\Controller\\MailController",
+      "method": "prelevement",
+      "name": "mailPrelevement"
+    }
+  ]
+}

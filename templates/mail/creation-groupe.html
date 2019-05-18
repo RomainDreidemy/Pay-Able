@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Création d'un groupe</title>
+</head>
+<body bgcolor="#d6d6d6" style="width:100% !important; -webkit-text-size-adjust:100%; -ms-text-size-adjust:100%; margin:0; padding:0;">
+<table width="650" border="0" align="center" cellpadding="0" cellspacing="0" bgcolor="#ffffff" style="font-size:0;" class="content">
+    <tr>
+        <td>
+            <table width="650" border="0" align="center" cellpadding="0" cellspacing="0" bgcolor="#ffffff" style="font-size:0;border-collapse:collapse;" class="content">
+                <tr>
+                    <td  class="content">
+
+                        <img style="display:block;" src="https://www.pay-able.fr/public/assets/img/mail/bouyaaheader.jpg" width="100%"  border="0" alt="Rejoingez votre groupe" title="Pay-able">
+
+                    </td>
+                </tr>
+            </table>
+        </td>
+    </tr>
+
+    <tr>
+        <td>
+            <table width="650" border="0" align="center" cellpadding="0" cellspacing="0" bgcolor="#ffffff" style="font-size:0;border-collapse:collapse; font-family:helvetica;" class="bloc2">
+
+                <table width="550" border="0" align="center" cellpadding="0" cellspacing="0" bgcolor="#ffffff" style="font-size:0;border-collapse:collapse; font-family:helvetica;" class="content">
+                    <tr>
+                        <td>
+                    <tr><td height="25"></td></tr>
+                    <tr>
+                        <td width="550" class="bloc1" align="center">
+                            <p style="font-size:27px; color:#000; font-family: futura-pt-condensed, sans-serif; font-weight: 700; font-style: normal;">{{ PRENOM }} nous vous remercions d'avoir créé un groupe</p>
+                            <table style="font-size: 12px; border-collapse: collapse; border: 1px solid #eee; width: 80%; text-align: left">
+                                <tr>
+                                    <th style="border: 1px solid #eee;">Id</th>
+                                    <th style="border: 1px solid #eee;">Nom</th>
+                                    <th style="border: 1px solid #eee;">Solutions</th>
+                                    <th style="border: 1px solid #eee;">Prix par mois</th>
+                                </tr>
+                                <tr>
+                                    <td style="border: 1px solid #eee; height: 20px">PAY-ABLE_{{ ID_GROUPE }}_{{ TOKEN }}</td>
+                                    <td style="border: 1px solid #eee; height: 20px">{{ NOM }}</td>
+                                    <td style="border: 1px solid #eee; height: 20px">{{ SOLUTIONS }}</td>
+                                    <td style="border: 1px solid #eee; height: 20px">{{ TOTAL }}€</td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                </table>
+            </table>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <table width="650" bgcolor="#FFFFFF" align="center" border="0" cellpadding="0" cellspacing="0" style="font-size: 0; " class="content">
+                <tr><td height="15" style="font-size:0;" class="content">&nbsp;</td></tr>
+                <tr><td class="hide"><img src="https://www.pay-able.fr/public/assets/img/mail/footer.jpg" border="0" width="650" alt="" /></td></tr>
+            </table>
+        </td>
+    </tr>
+</table>
+</body>
+</html>

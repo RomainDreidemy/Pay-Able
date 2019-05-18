@@ -1,0 +1,33 @@
+footer{
+
+  .img-footer{
+    width: 25%;
+  }
+  p{
+    width: 65%;
+  }
+}
+
+@media (min-width: 600px) {
+  footer{
+    div.container{
+      margin: 0 auto !important;
+
+      .img-footer{
+        width: 100px;
+        height: 100px;
+
+        img{
+          height: 100px;
+        }
+
+        &.w100{
+          width: unset;
+        }
+      }
+      p{
+        width: 65%;
+      }
+    }
+  }
+}

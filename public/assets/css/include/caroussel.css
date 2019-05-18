@@ -1,0 +1,40 @@
+@keyframes scroll {
+  0% {
+    transform: translateX(50%); }
+  100% {
+    transform: translateX(calc(-300px * 3)); } }
+.slider {
+  background: white;
+  margin: auto;
+  overflow: hidden;
+  position: relative;
+  width: 100%; }
+  .slider img {
+    width: 100%; }
+  .slider h3 {
+    font-size: 1.5em; }
+  .slider::before, .slider::after {
+    background: linear-gradient(to right, white 0%, rgba(255, 255, 255, 0) 100%);
+    content: "";
+    height: 100%;
+    position: absolute;
+    width: 100px;
+    z-index: 2; }
+  .slider::after {
+    right: 0;
+    top: 0;
+    transform: rotateZ(180deg); }
+  .slider::before {
+    left: 0;
+    top: 0; }
+  .slider .slide-track {
+    animation: scroll 20s linear infinite;
+    display: flex;
+    width: calc((175px + 150px) * 3); }
+  .slider .slide {
+    width: 175px;
+    margin-right: 150px; }
+
+
+
+/*# sourceMappingURL=caroussel.css.map */
