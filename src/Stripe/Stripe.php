@@ -110,6 +110,7 @@ class Stripe
                     'prix' => ($prix / 100),
                     'error' => $error ?? 'ok'
                 ]);
+                Mailer::prelevement($user['email'], $prix / 100);
             }
 
 //            Changement de la date de next_prelevement si il n'y a pas d'erreur
@@ -119,7 +120,6 @@ class Stripe
                     'id_group' => $groupe['id_group']
                 ]);
 
-                Mailer::prelevement($user['email'], $prix / 100);
             }
         }
     }
