@@ -21,6 +21,9 @@
           <mappings>
             <mapping deploy="/" local="$PROJECT_DIR$" web="/" />
           </mappings>
+          <excludedPaths>
+            <excludedPath local="true" path=".git" />
+          </excludedPaths>
         </serverdata>
       </paths>
       <paths name="Immo CRM">

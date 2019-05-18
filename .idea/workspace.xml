@@ -1,7 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="0e115dc3-5572-4876-a46d-9c9d406b543a" name="Default Changelist" comment="" />
+    <list default="true" id="0e115dc3-5572-4876-a46d-9c9d406b543a" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/FTP - Pay-Able.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/FTP - Pay-Able.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/deployment.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/deployment.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -242,6 +247,7 @@
       <path value="$PROJECT_DIR$/vendor/composer" />
       <path value="$PROJECT_DIR$/vendor/symfony/polyfill-ctype" />
       <path value="$PROJECT_DIR$/vendor/fzaninotto/faker" />
+      <path value="$PROJECT_DIR$/vendor/phpmailer/phpmailer" />
     </include_path>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
@@ -285,6 +291,17 @@
             <path>
               <item name="FTP - Pay-Able" type="b2602c69:ProjectViewProjectNode" />
               <item name="FTP - Pay-Able" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="FTP - Pay-Able" type="b2602c69:ProjectViewProjectNode" />
+              <item name="FTP - Pay-Able" type="462c0819:PsiDirectoryNode" />
+              <item name="vendor" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="FTP - Pay-Able" type="b2602c69:ProjectViewProjectNode" />
+              <item name="FTP - Pay-Able" type="462c0819:PsiDirectoryNode" />
+              <item name="vendor" type="462c0819:PsiDirectoryNode" />
+              <item name="phpmailer" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -369,7 +386,7 @@
       <workItem from="1557768519816" duration="734000" />
       <workItem from="1557774646662" duration="26407000" />
       <workItem from="1558166419037" duration="227000" />
-      <workItem from="1558180776173" duration="3633000" />
+      <workItem from="1558180776173" duration="5049000" />
     </task>
     <task id="LOCAL-00001" summary="Enregistrement du projet dans GitHub">
       <created>1558181276191</created>
@@ -382,7 +399,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="250963000" />
+    <option name="totallyTimeSpent" value="252379000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -410,7 +427,7 @@
       <window_info anchor="bottom" id="Version Control" order="8" show_stripe_button="false" />
       <window_info anchor="bottom" id="File Transfer" order="9" weight="0.20141844" />
       <window_info anchor="bottom" id="Database Changes" order="10" show_stripe_button="false" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="11" visible="true" weight="0.3460993" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="11" visible="true" weight="0.8212766" />
       <window_info anchor="bottom" id="Event Log" order="12" side_tool="true" weight="0.32907802" />
       <window_info anchor="bottom" id="Command Line Tools Console" order="13" weight="0.32907802" />
       <window_info anchor="bottom" id="Thumbnails" order="14" weight="0.32907802" />
