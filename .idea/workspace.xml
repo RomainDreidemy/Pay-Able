@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="0e115dc3-5572-4876-a46d-9c9d406b543a" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-    </list>
+    <list default="true" id="0e115dc3-5572-4876-a46d-9c9d406b543a" name="Default Changelist" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -310,17 +308,17 @@
     <property name="settings.editor.selected.configurable" value="preferences.editor" />
   </component>
   <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\xamp\htdocs\FTP - Pay-Able\public\assets\img\mail" />
+      <recent name="D:\xamp\htdocs\FTP - Pay-Able\public\assets\img" />
+      <recent name="D:\xamp\htdocs\FTP - Pay-Able\config" />
+    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="D:\xamp\htdocs\FTP - Pay-Able\templates\mail" />
       <recent name="D:\xamp\htdocs\FTP - Pay-Able\src\Controller" />
       <recent name="D:\xamp\htdocs\FTP - Pay-Able\templates\profil" />
       <recent name="D:\xamp\htdocs\FTP - Pay-Able\templates\backoffice" />
       <recent name="D:\xamp\htdocs\FTP - Pay-Able\src\FakeData" />
-    </key>
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="D:\xamp\htdocs\FTP - Pay-Able\public\assets\img\mail" />
-      <recent name="D:\xamp\htdocs\FTP - Pay-Able\public\assets\img" />
-      <recent name="D:\xamp\htdocs\FTP - Pay-Able\config" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -371,7 +369,7 @@
       <workItem from="1557768519816" duration="734000" />
       <workItem from="1557774646662" duration="26407000" />
       <workItem from="1558166419037" duration="227000" />
-      <workItem from="1558180776173" duration="3008000" />
+      <workItem from="1558180776173" duration="3280000" />
     </task>
     <task id="LOCAL-00001" summary="Enregistrement du projet dans GitHub">
       <created>1558181276191</created>
@@ -384,7 +382,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="250338000" />
+    <option name="totallyTimeSpent" value="250610000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
