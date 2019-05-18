@@ -875,6 +875,22 @@ body {
         padding-left: 25px; }
         body#profil main .container .card#info-groupe ul li {
           list-style-type: circle; }
+  body#merci header {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: unset;
+    background: none; }
+  body#merci main {
+    background-image: linear-gradient(#2A3C89, #00A059);
+    min-height: 100vh;
+    padding-top: 115px; }
+    body#merci main div.container-page-white {
+      max-height: 80vh !important;
+      overflow: hidden;
+      padding-top: 0px; }
+      body#merci main div.container-page-white img {
+        width: 300px; }
   @media screen and (min-width: 740px) {
     body#home header h1 {
       font-size: 3em;

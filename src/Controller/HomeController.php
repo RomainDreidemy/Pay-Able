@@ -163,7 +163,7 @@ class HomeController extends AbstractController
         if($_POST && isset($_POST['stripeToken'])){
             if(Stripe::newCustomer($_POST['stripeToken'])){
                 if(Groupe::creation()){
-                    header('location:' . Router::buildPath('accueil2'));
+                    header('location:' . Router::buildPath('merci'));
                     die;
                 }
             }
@@ -172,7 +172,7 @@ class HomeController extends AbstractController
 //        Si il avait déjà une carte d'enregistré
         if($_GET && isset($_GET['action']) && $_GET['action'] == 'active'){
             if(Groupe::creation()){
-                header('location:' . Router::buildPath('accueil2'));
+                header('location:' . Router::buildPath('merci'));
                 die;
             }
         }
@@ -233,7 +233,7 @@ class HomeController extends AbstractController
 
         if($_POST && isset($_POST['stripeToken'])){
             if(Groupe::rejoindre($_SESSION['rejoindreGroupe']['id'])){
-                header('location:' . Router::buildPath('profil'));
+                header('location:' . Router::buildPath('merci'));
                 die;
             }
         }
@@ -241,7 +241,7 @@ class HomeController extends AbstractController
         //        Si il avait déjà une carte d'enregistré
         if($_GET && isset($_GET['action']) && $_GET['action'] == 'active'){
             if(Groupe::rejoindre($_SESSION['rejoindreGroupe']['id'])){
-                header('location:' . Router::buildPath('profil'));
+                header('location:' . Router::buildPath('merci'));
                 die;
             }
         }
@@ -253,6 +253,21 @@ class HomeController extends AbstractController
                 'HTML_TITLE' => "Ajout de la carte bancaire | Pay-Able",
                 'ID_GROUPE' => $_SESSION['rejoindreGroupe']['id'],
                 'ASCARD' => $asCard
+            ]
+        );
+    }
+
+    static public function merci()
+    {
+        if(!User::isConnect()){
+            header('location:' . Router::buildPath('connexion'));
+            die;
+        }
+
+        self::twig(
+            'merci.html',
+            [
+                'HTML_TITLE' => "Pay-Able vous remercie | Pay-Able"
             ]
         );
     }

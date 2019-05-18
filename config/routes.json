@@ -74,6 +74,12 @@
       "name": "rejoindre2"
     },
     {
+      "url": "/merci",
+      "class": "App\\Controller\\HomeController",
+      "method": "merci",
+      "name": "merci"
+    },
+    {
       "url": "/profil",
       "class": "App\\Controller\\HomeController",
       "method": "profil",
