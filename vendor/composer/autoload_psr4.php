@@ -10,6 +10,7 @@ return array(
     'Symfony\\Polyfill\\Mbstring\\' => array($vendorDir . '/symfony/polyfill-mbstring'),
     'Symfony\\Polyfill\\Ctype\\' => array($vendorDir . '/symfony/polyfill-ctype'),
     'Stripe\\' => array($vendorDir . '/stripe/stripe-php/lib'),
+    'PHPMailer\\PHPMailer\\' => array($vendorDir . '/phpmailer/phpmailer/src'),
     'Faker\\' => array($vendorDir . '/fzaninotto/faker/src/Faker'),
     'App\\' => array($baseDir . '/src'),
 );

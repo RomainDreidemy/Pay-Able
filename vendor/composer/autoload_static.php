@@ -22,6 +22,10 @@ class ComposerStaticInit2880c85d023bd94f8aebb4608aa99e06
             'Symfony\\Polyfill\\Ctype\\' => 23,
             'Stripe\\' => 7,
         ),
+        'P' => 
+        array (
+            'PHPMailer\\PHPMailer\\' => 20,
+        ),
         'F' => 
         array (
             'Faker\\' => 6,
@@ -48,6 +52,10 @@ class ComposerStaticInit2880c85d023bd94f8aebb4608aa99e06
         'Stripe\\' => 
         array (
             0 => __DIR__ . '/..' . '/stripe/stripe-php/lib',
+        ),
+        'PHPMailer\\PHPMailer\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/phpmailer/phpmailer/src',
         ),
         'Faker\\' => 
         array (
