@@ -1,12 +1,36 @@
 <?php
 
 namespace App\Mailer;
-
-
+use App\App\App;
+use App\Message\Message;
 use App\Offer\Offer;
+use PHPMailer\PHPMailer\PHPMailer;
 
 class Mailer
 {
+    static private function smtpMailer($to, $subject, $body) {
+        $mail = new PHPMailer();  // Cree un nouvel objet PHPMailer
+        $mail->CharSet = 'UTF-8';
+        $mail->IsSMTP(); // active SMTP
+        $mail->SMTPDebug = 0;  // debogage: 1 = Erreurs et messages, 2 = messages seulement
+        $mail->SMTPAuth = true;  // Authentification SMTP active
+        $mail->SMTPSecure = 'ssl'; // Gmail REQUIERT Le transfert securise
+        $mail->Host = 'smtp.gmail.com';
+        $mail->Port = 465;
+        $mail->Username = 'payable.projet@gmail.com';
+        $mail->Password = 'etxzh93r';
+        $mail->SetFrom('payable.projet@gmail.com', 'Pay-Able');
+        $mail->Subject = $subject;
+        $mail->msgHTML($body);
+        $mail->AddAddress($to);
+        if(!$mail->Send()) {
+            Message::add(Message::MSG_ERROR, 'Envoi du mail impossible ' . $mail->ErrorInfo);
+            return 'Mail error: '.$mail->ErrorInfo;
+        } else {
+            return true;
+        }
+    }
+
     static public function invitationGroupe(array $emails,$id_group,$token) : bool
     {
 
@@ -36,24 +60,13 @@ class Mailer
 
 
         $messageMail = file_get_contents($lien);
+        $subject = $_SESSION['user']['name'] . ' ' . $_SESSION['user']['surname'] . ' vous invite à rejoindre un groupe Pay-Able';
 
         foreach ($emails as $email){
 
-            $to      = $email;
-            $subject = $_SESSION['user']['name'] . ' ' . $_SESSION['user']['surname'] . ' vous invite à rejoindre un groupe Pay-Able';
-            $message = $messageMail;
 
-            // Pour envoyer un mail HTML, l'en-tête Content-type doit être défini
-            $headers = array(
-                'From' => 'PAY-ABLE <contact@pay-able.fr>',
-                'To' => $email,
-                'X-Mailer' => 'PHP/' . phpversion(),
-                'MIME-Version' => '1.0',
-                'Content-type' =>  'text/html; charset=utf-8'
-            );
             // Envoi
-
-            if(!mail($to, $subject, $message, $headers)){
+            if(!self::smtpMailer($email, $subject, $messageMail)){
                 return false;
             }
         }
@@ -90,24 +103,12 @@ class Mailer
 
 
         $messageMail = file_get_contents($lien);
+        $subject = 'Confirmation de la création de votre groupe Pay-Able';
 
-            $to      = $email;
-            $subject = 'Confirmation de la création de votre groupe Pay-Able';
-            $message = $messageMail;
-
-            // Pour envoyer un mail HTML, l'en-tête Content-type doit être défini
-            $headers = array(
-                'From' => 'PAY-ABLE <contact@pay-able.fr>',
-                'To' => $email,
-                'X-Mailer' => 'PHP/' . phpversion(),
-                'MIME-Version' => '1.0',
-                'Content-type' =>  'text/html; charset=utf-8'
-            );
-            // Envoi
-
-            if(!mail($to, $subject, $message, $headers)){
-                return false;
-            }
+        // Envoi
+        if(!self::smtpMailer($email, $subject, $messageMail)){
+            return false;
+        }
 
 
         return true;
@@ -120,22 +121,14 @@ class Mailer
             '&nom=' . urlencode($_SESSION['user']['name']);
 
         $messageMail = file_get_contents($lien);
+        $subject = $_SESSION['user']['name'] . ' ' . $_SESSION['user']['surname'] . ' a activer le groupe';
 
 
         $to = $email;
-        $subject = $_SESSION['user']['name'] . ' ' . $_SESSION['user']['surname'] . ' a activer le groupe';
         $message = $messageMail;
 
-        // Pour envoyer un mail HTML, l'en-tête Content-type doit être défini
-        $headers = array(
-            'From' => 'PAY-ABLE <contact@pay-able.fr>',
-            'X-Mailer' => 'PHP/' . phpversion(),
-            'MIME-Version' => '1.0',
-            'Content-type' => 'text/html; charset=utf-8'
-        );
-
         // Envoi
-        if (!mail($to, $subject, $message, $headers)) {
+        if(!self::smtpMailer($email, $subject, $messageMail)){
             return false;
         }
     }
@@ -147,22 +140,10 @@ class Mailer
             '&nom=' . urlencode($_SESSION['user']['name']);
 
         $messageMail = file_get_contents($lien);
-
-
-        $to = $email;
         $subject = $_SESSION['user']['name'] . ' ' . $_SESSION['user']['surname'] . ' a désactivé le groupe';
-        $message = $messageMail;
-
-        // Pour envoyer un mail HTML, l'en-tête Content-type doit être défini
-        $headers = array(
-            'From' => 'PAY-ABLE <contact@pay-able.fr>',
-            'X-Mailer' => 'PHP/' . phpversion(),
-            'MIME-Version' => '1.0',
-            'Content-type' => 'text/html; charset=utf-8'
-        );
 
         // Envoi
-        if (!mail($to, $subject, $message, $headers)) {
+        if(!self::smtpMailer($email, $subject, $messageMail)){
             return false;
         }
     }
@@ -174,21 +155,9 @@ class Mailer
             '&nom=' . urlencode($_SESSION['user']['name']);
 
         $messageMail = file_get_contents($lien);
-
-        $to = $email;
         $subject = $_SESSION['user']['name'] . ' ' . $_SESSION['user']['surname'] . ' a rejoint le groupe';
-        $message = $messageMail;
-
-        // Pour envoyer un mail HTML, l'en-tête Content-type doit être défini
-        $headers = array(
-            'From' => 'PAY-ABLE <contact@pay-able.fr>',
-            'X-Mailer' => 'PHP/' . phpversion(),
-            'MIME-Version' => '1.0',
-            'Content-type' => 'text/html; charset=utf-8'
-        );
-
         // Envoi
-        if (!mail($to, $subject, $message, $headers)) {
+        if(!self::smtpMailer($email, $subject, $messageMail)){
             return false;
         }
     }
@@ -200,21 +169,10 @@ class Mailer
             '&nom=' . urlencode($_SESSION['user']['name']);
 
         $messageMail = file_get_contents($lien);
-
-        $to = $email;
         $subject = $_SESSION['user']['name'] . ' ' . $_SESSION['user']['surname'] . ' a quitté le groupe';
-        $message = $messageMail;
-
-        // Pour envoyer un mail HTML, l'en-tête Content-type doit être défini
-        $headers = array(
-            'From' => 'PAY-ABLE <contact@pay-able.fr>',
-            'X-Mailer' => 'PHP/' . phpversion(),
-            'MIME-Version' => '1.0',
-            'Content-type' => 'text/html; charset=utf-8'
-        );
 
         // Envoi
-        if (!mail($to, $subject, $message, $headers)) {
+        if(!self::smtpMailer($email, $subject, $messageMail)){
             return false;
         }
     }
@@ -227,22 +185,10 @@ class Mailer
             '&email=' . urlencode($email);
 
         $messageMail = file_get_contents($lien);
-
-
-        $to = $email;
         $subject = 'Merci de vous être inscrit sur Pay-Able';
-        $message = $messageMail;
-
-        // Pour envoyer un mail HTML, l'en-tête Content-type doit être défini
-        $headers = array(
-            'From' => 'PAY-ABLE <contact@pay-able.fr>',
-            'X-Mailer' => 'PHP/' . phpversion(),
-            'MIME-Version' => '1.0',
-            'Content-type' => 'text/html; charset=utf-8'
-        );
 
         // Envoi
-        if (!mail($to, $subject, $message, $headers)) {
+        if(!self::smtpMailer($email, $subject, $messageMail)){
             return false;
         }
     }
@@ -255,22 +201,11 @@ class Mailer
             '&prix=' . urlencode($prix);
 
         $messageMail = file_get_contents($lien);
-
-
-        $to = $email;
         $subject = 'Reçu du prélèvement Pay-Able';
-        $message = $messageMail;
 
-        // Pour envoyer un mail HTML, l'en-tête Content-type doit être défini
-        $headers = array(
-            'From' => 'PAY-ABLE <contact@pay-able.fr>',
-            'X-Mailer' => 'PHP/' . phpversion(),
-            'MIME-Version' => '1.0',
-            'Content-type' => 'text/html; charset=utf-8'
-        );
 
         // Envoi
-        if (!mail($to, $subject, $message, $headers)) {
+        if(!self::smtpMailer($email, $subject, $messageMail)){
             return false;
         }
     }

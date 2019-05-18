@@ -184,6 +184,7 @@ class Groupe
         }
 
 //        Envoie des invitations par mail
+        Mailer::invitationGroupe($_SESSION['createGroupe']['invitations'], $id_group, $token);
         Mailer::creationGroupe($_SESSION['user']['email'], $id_group, $token);
 
 

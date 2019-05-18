@@ -14,6 +14,9 @@ class HomeController extends AbstractController
 {
     static public function home() : void
     {
+
+        App::Debug($_SESSION);
+
         self::twig(
             'home.html',
             [
