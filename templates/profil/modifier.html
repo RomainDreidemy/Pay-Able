@@ -17,7 +17,7 @@
                 <div class="alert alert-{{ message.type|e }}">{{ message.message|e }}</div>
                 {% endfor %}
 
-                <form action="" method="post" class="mt-30">
+                <form  method="post" class="mt-30">
                     <h3>Comment vous appelez-vous ?</h3>
                     <input type="text" name="name" class="form-control mt-5 mb-5" placeholder="Nom" value="{{ INFOS.name }}">
                     <input type="text" name="surname" class="form-control" placeholder="Prenom" value="{{ INFOS.surname }}">
